@@ -1,0 +1,36 @@
+563172 -  migrate_passwd.pl problems with '0' fields
+
+Sent upstream as http://bugzilla.padl.com/show_bug.cgi?id=345
+
+diff -up MigrationTools-47/migrate_passwd.pl.o MigrationTools-47/migrate_passwd.pl
+--- MigrationTools-47/migrate_passwd.pl.o	2010-04-27 14:24:54.000000000 +0200
++++ MigrationTools-47/migrate_passwd.pl	2010-04-27 14:25:19.000000000 +0200
+@@ -205,22 +205,22 @@ sub dump_shadow_attributes
+ 	if ($lastchg ne "") {
+ 		print $HANDLE "shadowLastChange: $lastchg\n";
+ 	}
+-	if ($min) {
++	if ($min ne "") {
+ 		print $HANDLE "shadowMin: $min\n";
+ 	}
+-	if ($max) {
++	if ($max ne "") {
+ 		print $HANDLE "shadowMax: $max\n";
+ 	}
+-	if ($warn) {
++	if ($warn ne "") {
+ 		print $HANDLE "shadowWarning: $warn\n";
+ 	}
+-	if ($inactive) {
++	if ($inactive ne "") {
+ 		print $HANDLE "shadowInactive: $inactive\n";
+ 	}
+-	if ($expire) {
++	if ($expire ne "") {
+ 		print $HANDLE "shadowExpire: $expire\n";
+ 	}
+-	if ($flag) {
++	if ($flag ne "") {
+ 		print $HANDLE "shadowFlag: $flag\n";
+ 	}
+ }

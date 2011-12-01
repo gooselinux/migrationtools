@@ -1,0 +1,20 @@
+diff -up MigrationTools-47/migrate_base.pl.bak MigrationTools-47/migrate_base.pl
+--- MigrationTools-47/migrate_base.pl.bak	2007-10-22 14:22:13.000000000 +0200
++++ MigrationTools-47/migrate_base.pl	2007-10-22 14:25:53.000000000 +0200
+@@ -58,14 +58,8 @@ sub gen_namingcontexts
+ sub gen_suffix
+ {
+ 	@dn_components = split(/,/, $DEFAULT_BASE);
+-	if ($#dn_components == 0) {
+-		$dnloc = 0;
+-		&base_ldif;
+-	} else {
+-		for ($dnloc = ($#dn_components-1); $dnloc >= 0; $dnloc--) {
+-			&base_ldif;
+-		}
+-	}
++	$dnloc = 0;
++	&base_ldif;
+ }
+ 
+ sub base_ldif
